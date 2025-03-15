@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRepos } from "../store/slices/userSlice";
 import { RootState, AppDispatch } from "../store/store";
+import RepositoryCard from "./RepositoryCard";
 
 interface UserListProps {
   users: { login: string; avatar_url: string }[];
@@ -13,13 +14,9 @@ const UserList: React.FC<UserListProps> = ({ users }) => {
   const repos = useSelector((state: RootState) => state.users.repos);
 
   const toggleAccordion = (username: string) => {
-    if (openUser === username) {
-      setOpenUser(null);
-    } else {
-      setOpenUser(username);
-      if (!repos[username]) {
-        dispatch(fetchRepos(username));
-      }
+    setOpenUser(openUser === username ? null : username);
+    if (!repos[username]) {
+      dispatch(fetchRepos(username));
     }
   };
 
@@ -44,17 +41,7 @@ const UserList: React.FC<UserListProps> = ({ users }) => {
               {repos[user.login] ? (
                 repos[user.login].length > 0 ? (
                   repos[user.login].map((repo) => (
-                    <div key={repo.id} className="border p-2 rounded mb-2 shadow-sm relative">
-                      {/* Repository Title & Description */}
-                      <h4 className="font-bold">{repo.name}</h4>
-                      <p className="text-sm text-gray-600">{repo.description || "No description"}</p>
-
-                      {/* Star Count (Top Right Corner) */}
-                      <div className="absolute top-2 right-2 flex items-center gap-1 text-gray-700 text-sm">
-                        {repo.stargazers_count}
-                        <span className="text-yellow-500">★</span>
-                      </div>
-                    </div>
+                    <RepositoryCard key={repo.id} repo={repo} />
                   ))
                 ) : (
                   <p>No repositories found.</p>

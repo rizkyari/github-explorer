@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import { fetchGitHubUsers, fetchGitHubRepos } from "../../utils/githubApi";
 
 interface User {
   login: string;
@@ -26,15 +26,17 @@ const initialState: UserState = {
   status: "idle",
 };
 
+// Fetch GitHub users
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async (query: string) => {
-  const response = await axios.get(`https://api.github.com/search/users?q=${query}&per_page=5`);
-  return response.data.items;
+  return await fetchGitHubUsers(query);
 });
 
+// Fetch GitHub repositories
 export const fetchRepos = createAsyncThunk("users/fetchRepos", async (username: string) => {
-  const response = await axios.get(`https://api.github.com/users/${username}/repos`);
-  return { username, repos: response.data };
+  const repos = await fetchGitHubRepos(username);
+  return { username, repos };
 });
+
 
 const userSlice = createSlice({
   name: "users",
