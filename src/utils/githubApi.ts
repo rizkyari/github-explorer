@@ -2,7 +2,7 @@ import axios from "axios";
 import { handleApiError } from "./apiUtils";
 
 // Use environment variable for API base URL
-const API_BASE_URL = process.env.REACT_APP_GITHUB_API;
+export const API_BASE_URL = process.env.REACT_APP_GITHUB_API;
 
 // Fetch GitHub users based on search query
 export const fetchGitHubUsers = async (query: string) => {

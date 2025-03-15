@@ -14,7 +14,7 @@ interface Repo {
   stargazers_count: number;
 }
 
-interface UserState {
+export interface UserState {
   users: User[];
   repos: Record<string, Repo[]>;
   status: "idle" | "loading" | "failed";
