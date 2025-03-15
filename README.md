@@ -1,46 +1,111 @@
-# Getting Started with Create React App
+# 📌 GitHub Repositories Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React + TypeScript application that allows users to search GitHub users and view their repositories.
 
-## Available Scripts
+## 🚀 Live Demo: GitHub Explorer
+[GitHub Explorer](https://github-explorer-ebon-gamma.vercel.app/)
 
-In the project directory, you can run:
+## 📜 Features
 
-### `npm start`
+- ✅ Search GitHub Users – Displays up to 5 matching users based on search input.
+- ✅ View User Repositories – Click on a user to see their public repositories.
+- ✅ Star Count Display – Shows the number of stars for each repository.
+- ✅ Accordion-style Repository List – Expands repositories within the user dropdown.
+- ✅ State Management with Redux Toolkit – Efficient data handling.
+- ✅ Tailwind CSS for Styling – Responsive and modern UI.
+- ✅ Error Handling & Loading States – Improves user experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⚙️ Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React (with TypeScript)
 
-### `npm test`
+- Redux Toolkit (State Management)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Tailwind CSS (Styling)
 
-### `npm run build`
+- Axios (API Requests)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React Router (Routing)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📥 Installation & Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Follow these steps to run the project locally:
 
-### `npm run eject`
+1️⃣ Clone the Repository
+```
+git clone https://github.com/your-username/github-explorer.git
+cd github-explorer
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2️⃣ Install Dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3️⃣ Create a .env File
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Rename .env.example to .env and set your GitHub API Base URL:
+```
+REACT_APP_API_BASE_URL=https://api.github.com
+```
 
-## Learn More
+4️⃣ Start the Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app will run at: http://localhost:3000
+
+## 📦 Project Structure
+```
+📦 github-explorer
+├── 📂 src
+│   ├── 📂 components    # Reusable UI components
+│   ├── 📂 pages         # App pages (Home, UserDetail)
+│   ├── 📂 store         # Redux store & slices
+│   ├── 📂 utils         # API calls & helpers
+│   ├── App.tsx         # Main app component
+│   ├── index.tsx       # Entry point
+│   ├── styles.css      # Global styles
+├── .env.example        # Example environment variables
+├── README.md           # Project documentation
+├── package.json        # Dependencies & scripts
+└── tsconfig.json       # TypeScript configuration
+```
+
+## 🚀 Deployment
+
+- Deploy on Vercel
+
+- Install Vercel CLI
+```
+npm install -g vercel
+```
+
+- Deploy the App
+```
+vercel --prod
+```
+The project is now live at: [GitHub Explorer](https://github-explorer-ebon-gamma.vercel.app/)
+
+## 🛠️ Known Issues & Future Improvements
+
+- 🚧 Unit & Integration Tests: Due to time constraints, tests were not implemented yet.
+
+- 🚀 Caching Optimization: Store API results for better performance.
+
+- 🔍 Advanced Search: Add filtering by programming language, repo size, etc.
+
+## 🤝 Contributing
+
+- Fork the repository
+
+- Create a feature branch (git checkout -b feature-name)
+
+- Commit changes (git commit -m 'Add feature')
+
+- Push to the branch (git push origin feature-name)
+
+- Open a Pull Request
